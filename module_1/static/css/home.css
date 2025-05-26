@@ -36,23 +36,40 @@ body {
 }
 
 /* Navigation styling */
+
 nav {
-  background-color: #800060;
-  padding: 10px 20px;
-  margin-bottom: 30px;
-  border-radius: 6px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #740452;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 1em;
 }
 
 nav ul li a {
   color: white;
-  font-weight: 600;
-  padding: 6px 12px;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+nav ul li a.active {
+  background-color: #007bff;
+  border-radius: 4px;
 }
 
 /* Header styles */
@@ -85,5 +102,6 @@ p {
 
 /* Divs spacing */
 div {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
