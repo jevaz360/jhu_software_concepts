@@ -2,15 +2,17 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
+# function to gather URLS from multiple pages of the Grad Cafe and store in a URL array
 def gather_urls(url):
     urls = []
     pages = []
-    for n in range(1,5):
+    for n in range(1,501):
         next_url = url + "&page=" + str(n)
         urls.append(next_url) 
         pages.append(n)
     return urls, pages
 
+# function to retrieve all information regarding the <tr> HTML tags from the webpage 
 def make_entries(url):
     page = requests.get(url)
 
@@ -25,6 +27,7 @@ def make_entries(url):
     entries = results.find_all("tr")
     return entries
 
+# function to scrape the <tr> tags according to the information wanted, and stored in respective variables
 def scrape(entries):
     #variables
     university = "None"
@@ -120,16 +123,23 @@ def scrape(entries):
         
             # start semester
             semester_start = entry.find("div", class_ = "tw-inline-flex tw-items-center tw-rounded-md tw-bg-orange-400 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-white tw-ring-1 tw-ring-inset tw-ring-orange-800/20")
-            if semester_start.text is not None:
-                semester_start_f = semester_start.text
-                #print(semester_start.text)
+            if semester_start is not None:
+                if semester_start.text is not None:
+                    semester_start_f = semester_start.text
+                    #print(semester_start.text)
+                else:
+                    semester_start_f = "None"
+                    #print("None")
             else:
                 semester_start_f = "None"
                 #print("None")
 
             # student type
             student_type = entry.find("div", class_= "tw-inline-flex tw-items-center tw-rounded-md tw-bg-stone-50 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-stone-700 tw-ring-1 tw-ring-inset tw-ring-stone-600/20")
-            student_type_f = student_type.text
+            if student_type is not None:
+                student_type_f = student_type.text
+            else:
+                student_type_f = "None"
             #print(student_type.text)
 
             # GRE_score
@@ -166,30 +176,27 @@ def scrape(entries):
 
     return list
 
+# function to create JSON file to store data
 def create_file():
-        with open("data.json", "w") as json_file:
+        with open("applicant_data.json", "w") as json_file:
             return
 
-
+# function to write the array with the data to the JSON file
 def write_file(array):
-    with open("data.json", "a") as json_file:
+    with open("applicant_data.json", "a") as json_file:
         json.dump(array, json_file, indent = 4)
-    """
-    for value in array:
-        with open("data.json", "a") as json_file:
-            json.dump(value, json_file, indent = 4)
-    """
 
-
-
+# main function
 def main():
     # retrieve the url you want to scrape from
     url = "https://www.thegradcafe.com/survey/?q=Computer+Science"
     urls, pages = gather_urls(url)
-    #print(urls)
-    #print(pages)
 
+    # create JSON file
     create_file()
+
+    # for each URL in the URL array associated with each page, retrieve the data related to student entries, scrape the entries, create a dictionary according
+    # to the page number being scraped, then append an array with the dictionary, output array to JSON 
 
     page = 0
     array = []
