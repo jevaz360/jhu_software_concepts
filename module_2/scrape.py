@@ -25,7 +25,7 @@ def make_entries(url):
     entries = results.find_all("tr")
     return entries
 
-def scrape(entries, page):
+def scrape(entries):
     #variables
     university = "None"
     program = "None"
@@ -43,7 +43,6 @@ def scrape(entries, page):
     home = "https://www.thegradcafe.com"
     count = 0
     list = []
-    page = str(page)
 
     for entry in entries:
         if entry.find("td", class_ = "tw-py-5 tw-pr-3 tw-text-sm tw-pl-0") is not None:
@@ -165,14 +164,22 @@ def scrape(entries, page):
             comment_f = comment.text
             #print(comment.text)
 
-    dictionary = {page:list}
+    return list
 
-    return dictionary
+def create_file():
+        with open("data.json", "w") as json_file:
+            return
 
 
-def write_file(dictionary):
-    with open("data.json", "w") as json_file:
-        json.dump(dictionary, json_file, indent = 4)
+def write_file(array):
+    with open("data.json", "a") as json_file:
+        json.dump(array, json_file, indent = 4)
+    """
+    for value in array:
+        with open("data.json", "a") as json_file:
+            json.dump(value, json_file, indent = 4)
+    """
+
 
 
 def main():
@@ -182,17 +189,19 @@ def main():
     print(urls)
     print(pages)
 
-    i=0
+    create_file()
 
+    i=0
+    array = []
     for url in urls:
         page = pages[i]
         entries = make_entries(url)
-        # instead of making list storing data, make dictionary with page key, data value
-        # return the dictionary
-        dictionary = scrape(entries, page)
-        print(dictionary)
-        #list = scrape(entries)
-        write_file(dictionary)
+
+        list = scrape(entries)
+        dictionary = {page:list}
+        array.append(dictionary)
+        #print(array)
+        write_file(array)
         i+=1
 
 main()
