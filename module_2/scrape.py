@@ -186,22 +186,23 @@ def main():
     # retrieve the url you want to scrape from
     url = "https://www.thegradcafe.com/survey/?q=Computer+Science"
     urls, pages = gather_urls(url)
-    print(urls)
-    print(pages)
+    #print(urls)
+    #print(pages)
 
     create_file()
 
-    i=0
+    page = 0
     array = []
     for url in urls:
-        page = pages[i]
+        page += 1
         entries = make_entries(url)
-
         list = scrape(entries)
+        #print(list)
         dictionary = {page:list}
+        #print(dictionary)
         array.append(dictionary)
-        #print(array)
-        write_file(array)
-        i+=1
+    
+    #print(array)
+    write_file(array)
 
 main()
