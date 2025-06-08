@@ -62,6 +62,7 @@ def home():
  
 
     percent_international = (num_international / total ) * 100
+    percent_international = round(percent_international, 2)
     print(percent_international)
 
     # What is the average GPA of applicants?
@@ -100,6 +101,7 @@ def home():
     sum_gre = sum(x)
     total_applicants_with_gre = len(x)
     average_gre = sum_gre / total_applicants_with_gre
+
     print(average_gre)
 
     # What is the average GRE V of applicants?
@@ -174,6 +176,7 @@ def home():
     temparray = cursor.fetchall()
     num_fall2024_applicants_accepted = len(temparray)
     percent_fall2024_accepted = (num_fall2024_applicants_accepted / num_fall2024_applicants) * 100
+    percent_fall2024_accepted = round(percent_fall2024_accepted, 2)
     print(percent_fall2024_accepted)
 
     # What is the average GPA of applicants who applied for Fall 2024 who are acceptances?
@@ -218,7 +221,8 @@ def home():
                            average_gre_v = average_gre_v,
                            average_gre_aw = average_gre_aw,
                            average_gpa_american_fall2024 = average_gpa_american_fall2024,
-                           percent_fall2024_accepted = percent_fall2024_accepted, 
+                           percent_fall2024_accepted = percent_fall2024_accepted,
+                           average_gpa_fall2024_acceptances = average_gpa_fall2024_acceptances, 
                            num_applicants_cs_jhu = num_applicants_cs_jhu)
 
 if __name__=="__main__":
