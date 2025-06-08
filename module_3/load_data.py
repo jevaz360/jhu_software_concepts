@@ -123,24 +123,27 @@ def main():
     # from the data file, retrieve the values of the respective keys and store each entry as a tuple
     program = "None"
     comments = "None"
-    date_added = "None"
+    date_added = "0000-00-00"
     url = "None"
     status = "None"
     term = "None"
     us_or_international = "None"
-    gpa = "None"
-    gre = "None"
-    gre_v = "None"
-    gre_aw = "None"
+    gpa = 0.0
+    gre = 0.0
+    gre_v = 0.0
+    gre_aw = 0.0
     degree = "None"
+    date_punctuation = [' ', '.', '-', '--', 'None']
+
     for item in data:
         if item.get("program") is not None:
             program = item.get("program")
         if item.get("comments") is not None:
             comments = item.get("comments")
         if item.get("date_added") is not None:
-            temp_date_added = item.get("date_added")
-            date_added = str_to_date(temp_date_added)
+            if item.get("date_added") not in date_punctuation:
+                temp_date_added = item.get("date_added")
+                date_added = str_to_date(temp_date_added)
         if item.get("url") is not None:
             url = item.get("url")
         if item.get("status") is not None:
@@ -160,15 +163,19 @@ def main():
             gre_v = str_to_float(temp_gre_v)
         if item.get("GRE AW") is not None:
             temp_gre_aw = item.get("GRE AW")
-            gre_aw = str_to_float(temp_gre_v)
+            gre_aw = str_to_float(temp_gre_aw)
         if item.get("Degree") is not None:
             degree = item.get("Degree")
         
         # create tuple storing values
         temptuple = (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree)
-        #print(temptuple)
-
+        print(temptuple)
+        
         # insert created tuple to table
-
+        insert_query = "INSERT INTO applicants (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
+        
+        connection.autocommit = True
+        cursor = connection.cursor()
+        cursor.execute(insert_query, (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree))
 
 main()
