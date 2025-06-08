@@ -169,7 +169,7 @@ def main():
         
         # create tuple storing values
         temptuple = (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree)
-        print(temptuple)
+        #print(temptuple)
         
         # insert created tuple to table
         insert_query = "INSERT INTO applicants (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
@@ -177,5 +177,8 @@ def main():
         connection.autocommit = True
         cursor = connection.cursor()
         cursor.execute(insert_query, (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree))
+
+    #query = """DROP TABLE applicants"""
+    #execute_query(connection,query)
 
 main()
