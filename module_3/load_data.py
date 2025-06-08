@@ -117,7 +117,7 @@ def main():
 
     # insert entries into table
     # open the json file, load it in as a list of dict (exaclty how it's stored)
-    file = open("E:\ModSoft\jhu_software_concepts\module_3\cleaned_applicant_data_10000 1.json")
+    file = open("jhu_software_concepts\module_3\cleaned_applicant_data_10000 1.json")
     data = json.load(file)
 
     # from the data file, retrieve the values of the respective keys and store each entry as a tuple
@@ -167,11 +167,8 @@ def main():
         if item.get("Degree") is not None:
             degree = item.get("Degree")
         
-        # create tuple storing values
-        temptuple = (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree)
-        #print(temptuple)
-        
-        # insert created tuple to table
+       
+        # insert created values to table
         insert_query = "INSERT INTO applicants (program, comments, date_added, url, status, term, us_or_international, gpa, gre, gre_v, gre_aw, degree) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
         
         connection.autocommit = True
