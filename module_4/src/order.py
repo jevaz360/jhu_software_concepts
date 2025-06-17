@@ -78,12 +78,27 @@ class Order:
         self.paid = False
 
     def __str__(self):
-       
+       """Returns a string defining all pizza objects within an order
+
+            :returns: string defining each pizza in the order, including each pizza's type of 
+            crust, sauce, cheese, toppings, and cost as well as the total cost of the order
+            :rtype: str
+            """
        for value in self.order:
            return value.__str__() + "\n total cost is: " + str(self.cost)
 
     
     def input_pizza(self, crust, sauce, cheese, toppings):
+        """Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.
+            :param crust: crust type including thin, thick, or gluten free
+            :type: str
+            :param sauce: sauce type including marinara, pesto, or Liv Sauce
+            :type: str
+            :param cheese: cheese type including mozerella only
+            :type: str
+            :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
+            :type: list of str
+            """
         #Input customer's order for a given pizza
         #Initialize the pizza object and attach to the order
         pizza = Pizza(crust, sauce, cheese, toppings)
@@ -93,6 +108,7 @@ class Order:
         self.cost += pizza.cost
 
     def order_paid(self):
+        """Changes the order payment status to True"""
         # Set order as paid once payment has been collected
         self.paid = True
 

@@ -43,7 +43,11 @@
               <!-- Local TOC -->
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">module_4 documentation</a><ul>
-<li><a class="reference internal" href="#src.order.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a></li>
+<li><a class="reference internal" href="#src.order.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a><ul>
+<li><a class="reference internal" href="#src.order.Order.input_pizza"><code class="docutils literal notranslate"><span class="pre">Order.input_pizza()</span></code></a></li>
+<li><a class="reference internal" href="#src.order.Order.order_paid"><code class="docutils literal notranslate"><span class="pre">Order.order_paid()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#src.order.Pizza"><code class="docutils literal notranslate"><span class="pre">Pizza</span></code></a><ul>
 <li><a class="reference internal" href="#src.order.Pizza.total_cost"><code class="docutils literal notranslate"><span class="pre">Pizza.total_cost()</span></code></a></li>
 </ul>
@@ -87,6 +91,26 @@ where the order calculates the total cost given multiple pizzas</p>
 <dt class="sig sig-object py" id="src.order.Order">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.order.</span></span><span class="sig-name descname"><span class="pre">Order</span></span><a class="headerlink" href="#src.order.Order" title="Link to this definition"></a></dt>
 <dd><p>This is a class to generate an Order object</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.order.Order.input_pizza">
+<span class="sig-name descname"><span class="pre">input_pizza</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crust</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sauce</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cheese</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toppings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.order.Order.input_pizza" title="Link to this definition"></a></dt>
+<dd><p>Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.
+:param crust: crust type including thin, thick, or gluten free
+:type: str
+:param sauce: sauce type including marinara, pesto, or Liv Sauce
+:type: str
+:param cheese: cheese type including mozerella only
+:type: str
+:param toppings: list of toppings including pineapple, pepperoni, or mushrooms
+:type: list of str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.order.Order.order_paid">
+<span class="sig-name descname"><span class="pre">order_paid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.order.Order.order_paid" title="Link to this definition"></a></dt>
+<dd><p>Changes the order payment status to True</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
