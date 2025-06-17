@@ -1,0 +1,88 @@
+>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applicant Data</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .faq-block {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+      }
+      .faq-block h5 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+      }
+      .faq-block p {
+        font-size: 1rem;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="text-center mb-4">Applicant Data</h1>
+      <div class="row">
+        <div class="faq-block">
+          <h5>How many entries applied for Fall 2024?</h5>
+          <p>{{num_fall2024_applicants}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>What percentage of entries are from international students?</h5>
+          <p>{{percent_international}}%</p>
+        </div>
+        <div class="faq-block">
+          <h5>What is the average GPA of applicants?</h5>
+          <p>{{average_gpa}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>What is the average GRE of applicants?</h5>
+          <p>{{average_gre}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>What is the average GRE V of applicants?</h5>
+          <p>{{average_gre_v}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>What is the average GRE AW of applicants?</h5>
+          <p>{{average_gre_aw}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>What is the average GPA of American students in Fall 2024</h5>
+          <p>{{average_gpa_american_fall2024}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>
+            What percent of entries for Fall 2024 are Acceptances (to two
+            decimal places)?
+          </h5>
+          <p>{{percent_fall2024_accepted}}%</p>
+        </div>
+        <div class="faq-block">
+          <h5>
+            What is the average GPA of applicants who applied for Fall 2024 who
+            are acceptances?
+          </h5>
+          <p>{{average_gpa_fall2024_acceptances}}</p>
+        </div>
+        <div class="faq-block">
+          <h5>
+            How many entries are from applicants who applied to JHU for a
+            masters degree in Computer Science?
+          </h5>
+          <p>{{num_applicants_cs_jhu}}</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
