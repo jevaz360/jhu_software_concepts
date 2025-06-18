@@ -1,6 +1,6 @@
 Name: Janice Vaz JHED ID: jvaz3
 
-Module 3: SQL Data Analysis
+Module 3 and 5: SQL Data Analysis
 
 Approach: In this assignment, we were tasked with loading the webscraped data we stored in a JSON file into a SQL table.
 
