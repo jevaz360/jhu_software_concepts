@@ -6,6 +6,7 @@ class Pizza:
     # Pizza objects and associated cost
     def __init__(self, crust, sauce, cheese, toppings):
         """Initializes a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza
+                
                 :param crust: crust type including thin, thick, or gluten free
                 :type: str
                 :param sauce: sauce type including marinara, pesto, or Liv Sauce
@@ -25,9 +26,9 @@ class Pizza:
     
     def __str__(self):
         """Returns a string defining all the values of a pizza object
-
-            :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
-            :rtype: str
+                
+                :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
+                :rtype: str
             """
         return("Your pizza has:" + 
                "\n crust: " + self.crust + 
@@ -80,9 +81,9 @@ class Order:
     def __str__(self):
        """Returns a string defining all pizza objects within an order
 
-            :returns: string defining each pizza in the order, including each pizza's type of 
-            crust, sauce, cheese, toppings, and cost as well as the total cost of the order
-            :rtype: str
+                :returns: string defining each pizza in the order, including each pizza's type of 
+                crust, sauce, cheese, toppings, and cost as well as the total cost of the order
+                :rtype: str
             """
        for value in self.order:
            return value.__str__() + "\n total cost is: " + str(self.cost)
@@ -90,14 +91,15 @@ class Order:
     
     def input_pizza(self, crust, sauce, cheese, toppings):
         """Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.
-            :param crust: crust type including thin, thick, or gluten free
-            :type: str
-            :param sauce: sauce type including marinara, pesto, or Liv Sauce
-            :type: str
-            :param cheese: cheese type including mozerella only
-            :type: str
-            :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
-            :type: list of str
+                
+                :param crust: crust type including thin, thick, or gluten free
+                :type: str
+                :param sauce: sauce type including marinara, pesto, or Liv Sauce
+                :type: str
+                :param cheese: cheese type including mozerella only
+                :type: str
+                :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
+                :type: list of str
             """
         #Input customer's order for a given pizza
         #Initialize the pizza object and attach to the order

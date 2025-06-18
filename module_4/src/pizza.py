@@ -25,9 +25,8 @@ class Pizza:
     
     def __str__(self):
         """Returns a string defining all the values of a pizza object
-
-            :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
-            :rtype: str
+                :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
+                :rtype: str
             """
         return("Your pizza has:" + 
                "\n crust: " + self.crust + 
