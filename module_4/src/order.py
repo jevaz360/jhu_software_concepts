@@ -5,16 +5,16 @@ class Pizza:
 
     # Pizza objects and associated cost
     def __init__(self, crust, sauce, cheese, toppings):
-        """Initializes a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza
+        """Initializes a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza.
                 
-                :param crust: crust type including thin, thick, or gluten free
-                :type crust: str
-                :param sauce: sauce type including marinara, pesto, or Liv Sauce
-                :type sauce: str
-                :param cheese: cheese type including mozerella only
-                :type cheese: str
-                :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
-                :type toppings: list of str"""
+        :param crust: crust type including thin, thick, or gluten free
+        :type crust: str
+        :param sauce: sauce type including marinara, pesto, or Liv Sauce
+        :type sauce: str
+        :param cheese: cheese type including mozerella only
+        :type cheese: str
+        :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
+        :type toppings: list of str"""
         #initialize a pizza
         # set pizza variables
         self.crust = crust
@@ -25,10 +25,10 @@ class Pizza:
         self.cost = 0
     
     def __str__(self):
-        """Returns a string defining all the values of a pizza object
+        """Returns a string defining all the values of a pizza object.
                 
-                :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
-                :rtype: str
+        :returns: string defining a pizza including type of crust, sauce, cheese, toppings, and cost
+        :rtype: str
             """
         return("Your pizza has:" + 
                "\n crust: " + self.crust + 
@@ -39,7 +39,7 @@ class Pizza:
                "\n cost is: " + str(self.cost))
     
     def total_cost(self):
-        """Calculates the cost associated with each type of crust, sauce, and toppings selected
+        """Calculates the cost associated with each type of crust, sauce, and toppings selected.
             """
         # cost of crust
         if self.crust == "thin":
@@ -69,7 +69,7 @@ class Pizza:
 class Order:
     """This is a class to generate an Order object"""
     def __init__(self):
-        """Initializes an Order object to include an empty order list, a cost set to 0, and a payment status as false
+        """Initializes an Order object to include an empty order list, a cost set to 0, and a payment status as false.
             """
         #Initialize a customer order
         self.order = []
@@ -79,27 +79,26 @@ class Order:
         self.paid = False
 
     def __str__(self):
-       """Returns a string defining all pizza objects within an order
-
-                :returns: string defining each pizza in the order, including each pizza's type of 
-                crust, sauce, cheese, toppings, and cost as well as the total cost of the order
-                :rtype: str
+       """Returns a string defining all pizza objects within an order.
+       
+       :returns: string defining each pizza in the order, including each pizza's type of crust, sauce, cheese, toppings, and cost as well as the total cost of the order
+       :rtype: str
             """
        for value in self.order:
            return value.__str__() + "\n total cost is: " + str(self.cost)
 
     
     def input_pizza(self, crust, sauce, cheese, toppings):
-        """Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.
-                
-                :param crust: crust type including thin, thick, or gluten free
-                :type crust: str
-                :param sauce: sauce type including marinara, pesto, or Liv Sauce
-                :type sauce: str
-                :param cheese: cheese type including mozerella only
-                :type cheese: str
-                :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
-                :type toppings: list of str
+        """Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.     
+        
+        :param crust: crust type including thin, thick, or gluten free
+        :type crust: str
+        :param sauce: sauce type including marinara, pesto, or Liv Sauce
+        :type sauce: str
+        :param cheese: cheese type including mozerella only
+        :type cheese: str
+        :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
+        :type toppings: list of str
             """
         #Input customer's order for a given pizza
         #Initialize the pizza object and attach to the order
