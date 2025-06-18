@@ -8,13 +8,13 @@ class Pizza:
         """Initializes a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza
                 
                 :param crust: crust type including thin, thick, or gluten free
-                :type: str
+                :type crust: str
                 :param sauce: sauce type including marinara, pesto, or Liv Sauce
-                :type: str
+                :type sauce: str
                 :param cheese: cheese type including mozerella only
-                :type: str
+                :type cheese: str
                 :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
-                :type: list of str"""
+                :type toppings: list of str"""
         #initialize a pizza
         # set pizza variables
         self.crust = crust
@@ -93,13 +93,13 @@ class Order:
         """Creates a pizza object including the crust, sauce, cheese, toppings, and cost of the pizza. Appends the pizza to the order, and updates the total cost of the order.
                 
                 :param crust: crust type including thin, thick, or gluten free
-                :type: str
+                :type crust: str
                 :param sauce: sauce type including marinara, pesto, or Liv Sauce
-                :type: str
+                :type sauce: str
                 :param cheese: cheese type including mozerella only
-                :type: str
+                :type cheese: str
                 :param toppings: list of toppings including pineapple, pepperoni, or mushrooms
-                :type: list of str
+                :type toppings: list of str
             """
         #Input customer's order for a given pizza
         #Initialize the pizza object and attach to the order
